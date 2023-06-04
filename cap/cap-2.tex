@@ -1,0 +1,263 @@
+\chapter{Transformaciones puntuales y sus generadores}
+\section{Grupos $1$-paramétricos de transformaciones puntuales y sus generadores infinitesimales}
+Nuestra meta es usar las simetrías de ecuaciones diferenciales para su integración.
+
+Cuando lidiamos con ecuaciones diferenciales, a menudo se trata de simplificar la ecuación mediante un apropiado cambio de variables, esto es, mediante una ransformación de la variable independiente $x$ y la variable dependiente $y$,
+\begin{equation}\label{2.1}
+    \Tilde{x}=\Tilde{x}(x,y),\qquad \Tilde{y}=\Tilde{y}(x,y).
+\end{equation}
+Llamamos a esto una \textbf{transformación puntual}. Esta mapea puntos $(x,y)$ en punto $(\Tilde{x},\Tilde{y})$.
+
+En el contexto de las simetrías, debemos considerar transformaciones puntuales que dependan (al menos) de un parámetro arbitrario $\varepsilon$,
+\begin{equation}\label{2.2}
+    \Tilde{x}=\Tilde{x}(x,y;\varepsilon),\qquad \Tilde{y}=\Tilde{y}(x,y;\varepsilon)
+\end{equation}
+y además que tengan las propiedades de que sean invertibles, que repetidas aplicaciones lleven a una transformación de la misma familia, por ejemplo
+\begin{equation}
+    \Tilde{\Tilde{x}}=\Tilde{\Tilde{x}}(\Tilde{x},\Tilde{y};\Tilde{\varepsilon})=\Tilde{\Tilde{x}}(x,y;\Tilde{\Tilde{\varepsilon}})
+\end{equation}
+para algún $\Tilde{\Tilde{\varepsilon}}=\Tilde{\Tilde{\varepsilon}}(\Tilde{\varepsilon},\varepsilon)$, y que la identidad esté contenida para, digamos, $\varepsilon=0$:
+\begin{equation}
+    \Tilde{x}(x,y;0)=x,\qquad \Tilde{y}(x,y;0)=y.
+\end{equation}
+De hecho, estas propiedades aseguran que las transformaciones (\ref{2.2}) forman un \textbf{grupo $1$-paramétrico de transformaciones puntuales}.
+
+Un ejemplo simple de un grupo $1$-paramétrico es dado por las rotaciones
+\begin{equation}\label{2.5}
+    \Tilde{x}=x\cos\varepsilon - y\sin\varepsilon,\qquad \Tilde{y}=x\sin\varepsilon + y\cos\varepsilon
+\end{equation}
+Del otro lado, las reflexiones
+\begin{equation}
+    \Tilde{x}=-x,\qquad \Tilde{y}=-y
+\end{equation}
+son transformaciones que, a pesar de ser útiles, no constituyen un grupo $1$-paramétrico.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.13]{img/46072.jpg}
+    \caption{Acción dek grupo $1$-paramétrico de transformaciones.}
+    \label{fig:2-1}
+\end{figure}
+
+El grupo $1$-paramétrico (\ref{2.2}) y su acción pueden ser mejor visualizados como movimientos en el plano $x-y$. Para hacer eso, tomemos (para $\varepsilon=0$) un punto arbitrario $(x_0,y_0)$ en el plano. Cuando el parámetro $\varepsilon$ varia, las imágenes $(\Tilde{x}_0,\Tilde{y}_0)$ de $(x_0,y_0)$ se moverán a lo largo de alguna línea. Repitiendo esto para diferentes puntos iniciales, uno obtiene las imagen dada en la Figura \ref{fig:2-1}, cada curva representa puntos que pueden ser transformados unos en otros bajo la acción del grupo. Ellas son llamadas las \textbf{orbitas del grupo}. Esta imagen puede ser también interpretada en términos del flujo y las lineas de corriente de algún fluido.
+
+La Figura \ref{fig:2-1} sugiere que una representación diferente del grupo de transformaciones dada por (\ref{2.2}) podría ser posible: el conjuntos de las curvas dadas en la Figura \ref{fig:2-1} está completamente caracterizado por el campo de sus vectores tangentes $\vb{X}$, ver Figura \ref{fig:2-2}  y vice versa!
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.13]{img/2-2.jpg}
+    \caption{El campo de los vectores tangentes $\vb{X}$ asociado con las orbitas de un grupo $1$-paramétrico.}
+    \label{fig:2-2}
+\end{figure}
+
+Esta idea puede ser dada en forma concisa considerando transformaciones infinitesimales. Tomamos un punto $(x,y)$ arbitrario y escribimos
+\begin{align}\label{2.7}
+\begin{split}
+    \Tilde{x}(x,y;\varepsilon)&=x+\varepsilon\xi(x,y)+\cdots=x+\varepsilon\vb{X}x+\cdots\\
+    \Tilde{y}(x,y;\varepsilon)&=y+\varepsilon\eta(x,y)+\cdots=y+\varepsilon\vb{X}y+\cdots
+\end{split}
+\end{align}
+donde las funciones $\xi$ y $\eta$ están definidas por
+\begin{equation}\label{2.8}
+    \xi(x,y)=\eval{\pdv{\Tilde{x}}{\varepsilon}}_{\varepsilon=0},\qquad \eta(x,y)=\eval{\pdv{\Tilde{y}}{\varepsilon}}_{\varepsilon=0},
+\end{equation}
+y el operador $\vb{X}$ está dado por
+\begin{equation}\label{2.9}
+    \vb{X}=\xi(x,y)\pdv{x}+\eta(x,y)\pdv{y}.
+\end{equation}
+
+Obviamente, las componentes del vector tangente $\vb{X}$ son exactamente $\xi$ y $\eta$.
+
+El operador $\vb{X}$ es llamado el \textbf{generador infinitesimal} de la transformación. "Generador" indica que repetidas aplicaciones de la transformación infinitesimal generará la transformación finita, la cuela es una forma diferente de expresar el hecho de que las curvas integrales del campo vectorial $\vb{X}$ son las orbitas del grupo: esto es, integrando
+\begin{equation}\label{2.10}
+    \pdv{\Tilde{x}}{\varepsilon}=\xi(\Tilde{x},\Tilde{y}),\qquad  \pdv{\Tilde{y}}{\varepsilon}=\eta(\Tilde{x},\Tilde{y})
+\end{equation}
+con valores iniciales $x,y$ en $\varepsilon=0$, llegaremos a la transformación finita (\ref{2.2}).
+
+El generador infinitesimal determina únicamente las orbitas del grupo, pero las orbitas no entregarán el generador up to factor constante: si reescalamos el parámetro $\varepsilon$ por $\varepsilon=f(\hat{\varepsilon}), f(0)=0,f'(0)\neq 0$, la definición (\ref{2.8}) de $\xi$ y $\eta$ entrega
+\begin{equation}\label{2.11}
+    \hat{\xi}=\eval{\pdv{\Tilde{x}}{\hat{\varepsilon}}}_{\hat{\varepsilon}=0}=\eval{\pdv{\Tilde{x}}{\varepsilon}f'(\hat{\varepsilon})}_{\varepsilon=0}=f'(0)\xi,\qquad \hat{\eta}=f'(0)\eta
+\end{equation}
+(el vector tangente $\vb{X}$ de las orbitas no tiene una escala fija.)
+
+Como una ilustración de transformaciones y sus generadores, consideremos algunos ejemplos. Para las rotaciones (\ref{2.5}) en el plano $x-y$ tenemos
+\begin{equation}
+    \eval{\pdv{\Tilde{x}}{\varepsilon}}_{\varepsilon=0}=-y,\qquad \eval{\pdv{\Tilde{y}}{\varepsilon}}_{\varepsilon=0}=x
+\end{equation}
+luego, el correspondiente generador estña dado por
+\begin{equation}\label{2.13}
+    \vb{X}=-y\pdv{x}+x\pdv{y}
+\end{equation}
+Para una traslación (desplazamiento del origend de $x$), tenemos
+\begin{equation}\label{2.14}
+    \Tilde{x}=x+\varepsilon, \qquad \Tilde{y}=y,\qquad \vb{X}=\pdv{x}
+\end{equation}
+El problema inverso es encontrar la tranformación finita cuando el generador es dado. Si tenemos
+\begin{equation}
+    \vb{X}=x\pdv{x}+y\pdv{y},
+\end{equation}
+¿qúe grupo le corresponde? Por su puesto tenemos que integrar (\ref{2.10}), esto es,,
+\begin{equation}
+    \pdv{\Tilde{x}}{\varepsilon}=\Tilde{x},\qquad  \pdv{\Tilde{y}}{\varepsilon}=\Tilde{y}.
+\end{equation}
+La solución con valores iniciales $\Tilde{x}(0)=x,\Tilde{y}(0)=y$ es obviamente
+\begin{equation}
+    \Tilde{x}=e^\varepsilon x,\qquad \Tilde{y}=e^\varepsilon y.
+\end{equation}
+Este es un tipo (especial) de escalamiento, o similitud: todas las variables están multiplicadas por el mismo factor constante.
+
+Ahora nos podemos preguntar ¿por qué preferimos las transformaciones que forman un grupo (de Lie) y los generadores de esas transformaciones? La razón es que, a pesar de que las transformaciones (\ref{2.1}) que no son miembros de un grupo $1$-paramétrico, pueden aparecer en el contexto de simetrías de ecuaciones diferenciales, es sólo con la ayuda de los generadores $\vb{X}$ que podremos \textit{encontrar} (y usar) simetrías. Esto se debe principalmente al hecho de que a pesar de que las transformaciones pueden ser muy complicadas, los generadores son siempre \textit{operadores lineales}.
+
+\section{Leyes de transformación y forma normal de los generadores}
+Los generadores $\vb{X}$ dados en (\ref{2.9}) explícitamente se refieren a las variables $x$ e $y$. ¿Cómo cambian las componentes $\xi$ y $\eta$ si introducimos nuevas variables $u(x,y)$ y $v(x,y)$ en vez de $x$ e $y$?
+
+Consideremos los generadores en más de dos variables,
+\begin{equation}\label{2.18}
+    \vb{X}=b^{i}(x^n)\pdv{x^{i}},\qquad i=1,...,N
+\end{equation}
+Ejecutando una transformación
+\begin{equation}
+    x^{i'}=x^{i'}(x^{i}),\qquad |\pdv{x^{i'}}{x^{i}}|\neq 0
+\end{equation}
+debido a que
+\begin{align}
+    \pdv{x^{i}}=\pdv{x^{i'}}{x^{i}}\pdv{x^{i'}}
+\end{align}
+entrega la ley de transformación
+\begin{equation}
+    \vb{X}=b^{i'}\pdv{x^{i'}},\quad b^{i'}=\pdv{x^{i'}}{x^{i}}b^{i}.
+\end{equation}
+Es decir, encontramos que las componentes $b^{i}$ del generador $\vb{X}$ transformar como las componentes de un vector (contravariante).
+
+Podemis usar esta ley de transformación para escribir el generador $\vb{X}$ de forma diferente. Debido a que
+\begin{equation}
+    \vb{X}n^n=b^{i}\pdv{x^{i}}n^n=b^n\qquad \vb{X}x^{n'}=b^{n'},
+\end{equation}
+esta forma es
+\begin{equation}
+    \vb{X}=(\vb{X}x^{i})\pdv{x^{i}}=(\vb{X}x^{i'})\pdv{x^{i'}}.
+\end{equation}
+Esta claramente indica como calcular las componentes de $\vb{X}$ en las nuevas coordenadas $x^{i'}(x^{i})$ si $\vb{X}$ es conocido en las coordenadas $x^{i}$ simplemente hay que aplicar $\vb{X}$ a las nuevas coordenadas.
+
+\begin{ejemplo}
+    El generador (\ref{2.13}) de una rotación si lo queremos expresar en coordenadas polares $r=\sqrt{x^2+y^2}$, $\varphi=\arctan y/x$. El resultado es $\vb{X}r=0, \vb{X}\varphi=1$, esto es,
+    \begin{equation}\label{2.27}
+        \vb{X}=-y\pdv{x}+y\pdv{y}=\pdv{\varphi}.
+    \end{equation}
+\end{ejemplo}
+
+Obviamente las coordenadas polares se ajustan mejor al describir rotaciones que las coordenadas Cartesianas. Esta declaración nos lleva a la siguiente pregunta: ¿Siempre hay coordenadas que se ajustan maximalmente a un dado grupo $1$-paramétrico de transformaciones? La respuesta es sí, \textit{siempre existen coordenadas tales que, para un número arbitrario $N$ de coordenadas $x^{i}$, el generador (\ref{2.18})} toma la simple forma
+\begin{equation}\label{2.28}
+    \vb{X}\pdv{s}
+\end{equation}
+Llamaremos a (\ref{2.28}) la \textbf{forma normal} del generador $\vb{X}$.
+
+\section{Extensiones de las transformaciones y sus generadores}
+Si queremos aplicar las transformaciones puntuales (\ref{2.1}) o (\ref{2.2}) a la ecuación diferencial 
+\begin{equation}\label{2.30}
+    H(x,y,y',...,y^{(n)})=0,\qquad y'\equiv \dv*{y}{x},\qquad \text{etc.,}
+\end{equation}
+tenemos que saber cómo transforman las derivadas $y^{(n)}$, esto es, cómo extender la transformación puntual a las derivadas. Por supuesto, esto puede hacerse trivialmente definiendo
+\begin{align}\label{2.31}
+    \Tilde{y}'&=\frac{\dd \Tilde{y}(x,y;\varphi)}{\dd\Tilde{x}(x,y;\varepsilon)}\dv{\Tilde{y}}{\Tilde{x}}=\frac{y'(\pdv*{\Tilde{y}}{y})+(\pdv*{\Tilde{y}}{\Tilde{x}})}{y'(\pdv*{\Tilde{x}}{y})+(\pdv*{\Tilde{x}}{\Tilde{x}})}=\Tilde{y}\\
+    \Tilde{y}''&=\pdv{\Tilde{y}'}{\Tilde{x}}=\Tilde{y}''(x,y,y',y'';\varepsilon)
+\end{align}
+esto es, las derivadas transformadas son derivadas de, y con respecto, a las variables transformadas.
+
+Lo que realmente necesitamos son extensiones de los generadores infinitesimales $\vb{X}$. Para obtenerlos, escribimos, como en (\ref{2.7})
+\begin{align}\label{2.32}
+    \begin{split}
+        \Tilde{x}&=x+\varepsilon\xi(x,y)+\cdots=x+\varepsilon\vb{X}x+\cdots,\\
+        \Tilde{y}&=y+\varepsilon \eta(x,y)+\cdots=y+\varepsilon\vb{X}y+\cdots,\\
+        \Tilde{y}'&=y'+\varepsilon\eta'(x,y,y')+\cdots=y'+\varepsilon\vb{X}y'+\cdots,\\
+        &\vdots\\
+        \Tilde{y}^{(n)}&=y^{(n)}+\varepsilon\eta^{(n)}(x,y,y',...,y^{(n)})+\cdots=y^{(n)}+\varepsilon\vb{X}y^{(n)}+\cdots
+    \end{split}
+\end{align}
+donde $\eta,\eta',...,\eta^{(n)}$ están \textit{definidos} por
+\begin{equation}
+    \eta'=\eval{\pdv{\Tilde{y}'}{\varepsilon}}_{\varepsilon=0},...,  \eta^{(n)}=\eval{\pdv{\Tilde{y}^{(n)}}{\varepsilon}}_{\varepsilon=0}
+\end{equation}
+Insertando (\ref{2.32}) en (\ref{2.31}), obtenemos
+\begin{align}
+    \begin{split}
+        \Tilde{y}'&=y'+\varepsilon\eta'+\cdots=\dv{\Tilde{y}}{\Tilde{x}}=\frac{\dd y+\varepsilon\dd\eta+\cdots}{\dd x+\varepsilon\dd\xi+\cdots}\\
+        &=\frac{y'+\varepsilon(\dv*{\eta}{x})+\cdots}{1+\varepsilon(\dv*{\xi}{x})+\cdots}=y'+\varepsilon\left(\dv{\eta}{x}-y'\dv{\xi}{x}\right)+\cdots,\\
+        \Tilde{y}^{(n)}&=y^{(n)}+\varepsilon\eta^{(n)}+\cdots=\dv{\Tilde{y}^{(n-1)}}{\Tilde{x}}\\
+        &=y^{(n)}+\varepsilon\left(\dv{\eta^{(n-1)}}{x}-y^{(n)}\dv{\xi}{x}\right)+\cdots,
+    \end{split}
+\end{align}
+de aquí podemos ver que los $\eta^{(i)}$ se pueden escribir como
+\begin{align}
+    \eta'&=\dv{\eta}{x}-y'\dv{\xi}{x}=\pdv{\eta}{x}+y'\left(\pdv{\eta}{y}-\pdv{\xi}{x}\right)-y'^2\pdv{\xi}{y},\\
+    \eta^{(n)}&=\dv{\eta^{(n-1)}}{x}-y^{(n)}\dv{\xi}{x}\label{2.36}
+\end{align}
+Es fácil mostrar por inducción que la última relación de recurrencia (\ref{2.36}) se puede escribir también como\footnote{Notemos que $\eta^{(n)}$ no es la $n$-ésima derivada de $\eta$.}
+\begin{equation}\label{2.37}
+    \boxed{\eta^{(n)}=\dv[n]{x}(\eta-y'\xi)+y^{(n+1)}\xi.}
+\end{equation}
+
+Podemos resumir este resultado como:
+\begin{resumen}
+    Si
+    \begin{equation}
+        \vb{X}=\xi(x,y)\pdv{x}+\eta(x,y)\pdv{y}
+    \end{equation}
+    es el generador infinitesimal de una transformación puntual, entonces
+    \begin{equation}
+        \vb{X}=\xi\pdv{x}+\eta\pdv{y}+\eta'\pdv{y'}+\cdots +\eta^{(n)}\pdv{y^{(n)}}
+    \end{equation}
+    es su extensión (o prolongación) hasta la $n$-ésima derivada, donde los $\eta^{(n)}(x,y,y',...,y^{(n)})$ están dados por (\ref{2.37}).
+\end{resumen}
+
+\section{Grupos multi-paramétricos de transformaciones y sus generadores}
+Las transformaciones pueden depender de más de un parámetro $\varepsilon$, es es, en vez de (\ref{2.2}) podríamos tener
+\begin{equation}\label{2.46}
+    \Tilde{x}=\Tilde{x}(x,y:\varepsilon_N),\qquad\Tilde{y}=\Tilde{y}(x,y:\varepsilon_N),\qquad N=1,...,r.
+\end{equation}
+Si los $\varepsilon_N$ son independientes unos de otros, y las transformaciones (\ref{2.46}) contienen a la identidad, son invertibles, e incluye sus repetidas aplicaciones (con posiblemente diferentes $\varepsilon_N$), las transformaciones (\ref{2.46}) forman un grupo $r$-paramétrico $G_r.$
+
+Para cada parámetro $\varepsilon_N$, un generador infinitesimal $\vb{X}_N$ puede ser asociado mediante
+\begin{equation}
+    \vb{X}_N=\xi_N\pdv{x}+\eta_N\pdv{y},
+\end{equation}
+\begin{equation}\label{2.47}
+    \xi_N(x,y)=\eval{\pdv{\Tilde{x}}{\varepsilon_N}}_{\varepsilon_M=0},\qquad \eta(x,y)=\eval{\pdv{\Tilde{y}}{\varepsilon_N}}_{\varepsilon_M=0}.
+\end{equation}
+
+Un rescalamiento de $\varepsilon_N$ rescala el correspondiente $\vb{X}_N$ por un factor constante\footnote{comparar con (\ref{2.11})}, y una transformación
+\begin{equation}
+    \varepsilon_N=\varepsilon_N(\hat{\varepsilon}_M),\qquad \varepsilon_N(0)=0,
+\end{equation}
+corresponde, debido a, por ejemplo,
+\begin{equation}
+    \hat{\eta}_N=\eval{\pdv{\Tilde{x}}{\varepsilon_N}}_{\varepsilon_L=0}=\eval{\pdv{\Tilde{x}}{\varepsilon_M}\pdv{\varepsilon_M}{\hat{\varepsilon}_N}}_{\varepsilon_L=0}=\xi_M\eval{\pdv{\varepsilon_M}{\hat{\varepsilon}_L}}_{\varepsilon_L=0}=B^M_N\xi_M,
+\end{equation}
+a una transformación lineal, con coeficientes constantes $B^M_N$, entre los $\vb{X}_N$:
+\begin{equation}
+    \hat{\vb{X}}_N=B^M_N\vb{X}_m.
+\end{equation}
+
+Si queremos especificar una transformación particular, tenemos que decir como los valores de diferentes $\varepsilon_A$ están relacionados con cada otro. Esto es, tenemos que entregar los $\varepsilon_A$ como funciones de un solo parámetro $\varepsilon$. Para esta transformación específica el generador infinesimal es
+\begin{align}
+        \xi&=\eval{\pdv{\Tilde{x}}{\varepsilon}}_{\varepsilon=0}=\pdv{\Tilde{x}}{\varepsilon_N}\eval{\pdv{\varepsilon_N}{\varepsilon}}_{\varepsilon=0}=a^N\xi_N,\qquad \eta=a^N\eta_N,\\
+        \vb{X}&=a^N\vb{X}_N;\label{2.51}
+\end{align}
+esto es, es una combinación lineal (con coeficientes constantes $a^N$) de los generadores básicos $\vb{X}_N$.
+
+\begin{ejemplo}
+    Supongamos que tenemos un grupo $2$-paramétrico de traslaciones en el plano $x-y$
+    \begin{equation}
+        \Tilde{x}=x+\varepsilon,\qquad \Tilde{y}=y+\varepsilon
+    \end{equation}
+    entonces los generadores están dados por
+    \begin{equation}
+        \vb{X}_1=\pdv{x},\qquad \vb{X}_2=\pdv{y}
+    \end{equation}
+    y un generador específico por
+    \begin{equation}
+        \vb{X}=a^1\pdv{x}+a^2\pdv{y}
+    \end{equation}
+\end{ejemplo}
+
+Formalmente la única diferencia entre el generador de un grupo $1$-paramétrico y el de un grupo multi-paramétrico es que el último contiene algunos parámetros arbitrarios (los $a^N$) linealmente.

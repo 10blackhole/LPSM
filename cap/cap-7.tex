@@ -1,0 +1,48 @@
+\chapter{Cómo usar LPS: ecuaciones diferenciales de segundo orden que admiten un $G_2.$}
+    \section{Clasificación de los posibles subcasos, y maneras a proceder}
+    Si una ecuación diferencial de segundo orden
+    \begin{equation}
+    	y''=\omega(x,y,y')\Leftrightarrow \vb{A}f=\left(\pdv{x}+y'\pdv{y}+\omega\pdv{y'}\right)f(x,y,y')=0
+    \end{equation}
+    admite un grupo $2$-paramétrico $G_2$, entonces existen dos generadores $\vb{X}_1$ y $\vb{X}_2$ que forman un álgebra de Lie; esto es, su conmutador es una combinación lineal de esos dos generadores,
+    \begin{equation}
+    	[\vb{X}_1,\vb{X}_2]=C^p_{12}\vb{X}_p=c_1\vb{X}_1+c_2\vb{X}_2.
+    \end{equation}
+    
+    Podemos distinguir entre dos casos: Alguna de las constantes de estructura $c_1$ y $c_2$ es cero y el grupo es abeliano, aveces denotado como $G_2I$,
+    \begin{equation}\label{7.3}
+    	G_2I: [\vb{X}_1,\vb{X}_2]=0,
+    \end{equation}
+    o al menos una de las constantes de estructura, digamos, $c_1$ es distinta de cero. Podemos entonces hacer una transformación (6.3) de la base para simplificar la constante de estructura, por ejemplo, $\hat{\vb{X}}_1=c_1\vb{X}_1+c_2\vb{X}_2, \hat{\vb{X}}_2=\vb{X}_2/c_1$, para tener $[\hat{\vb{X}}_1,\hat{\vb{X}}_2]=\hat{\vb{X}}_1$. Esto es, podemos siempre asumir, en el caso no conmutativo (denotado $G_2II$),
+    \begin{equation}\label{7.4}
+    	G_2II: [\vb{X}_1,\vb{X}_2]=\vb{X}_1.
+    \end{equation}
+    Para resumir,  hay dos tipos distintos de grupos $2$-paramétricos, los cuales están dados por (\ref{7.3})  y (\ref{7.4}).
+    
+    \textbf{Idea a seguir:} Transformar los generadores de simetría a una forma normal más simple y luego ver si podemos tratar la ecuación diferencial en esas nuevas coordenadas.
+    
+    Comencemos para el caso de dos generadores que conmutan. Siempre podemis transformar $\hat{\vb{X}}_1$ a su forma normal $\vb{X}=\pdv*{s}$ introduciendo coordenadas $s(x,y)$, $t(x,y)$. La forma general del segundo generador $\vb{X}_2$ en estas coordenadas es $\vb{X}_2=a(s,t)\pdv*{s}+b(s,t)\pdv*{t}$, pero para que estos conmuten, es decir, $[\vb{X}_1,\vb{X}_2]=0$, debe ser
+    \begin{equation}
+        \vb{X}_1=\pdv{s},\qquad \vb{X}_2=a(t)\pdv{s}+b(t)\pdv{s}
+    \end{equation}
+    Las transformaciones que dejan $\vb{X}_1$ invariante (pero cambian $\vb{X}_2$) son
+    \begin{equation}
+        u=s+h(t),\qquad v=v(t)
+    \end{equation}
+    Ellas dan
+    \begin{align}
+        \vb{X}_1&=\pdv{u}\\
+        \vb{X}_2&=(\vb{X}_2u)\pdv{u}+(\vb{X}_2 v)\pdv{v}=(a+bh')\pdv{u}+bv'\pdv{v}
+    \end{align}
+    Para $b=0$, escogemos $v=0$ y tenemos
+    \begin{equation}\label{7.8}
+        \vb{X}_1=\pdv{u}, \qquad \vb{X}_2=v\pdv{v}
+    \end{equation}
+    Para $b\neq 0$, escogemos $v'=1/b$ y $h'=-a/b$ y obtenemos
+    \begin{equation}\label{7.9}
+        \vb{X}_1=\pdv{u},\qquad \vb{X}_2\pdv{v}
+    \end{equation}
+    Para obtener la ecuación diferencial de segundo orden que admita (\ref{7.8}) y (\ref{7.9}) como simetrías, debemos decidir si tomar $v$ o $u$ como la variable independiente.
+    
+    
+    
